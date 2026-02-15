@@ -1,6 +1,7 @@
 package com.coffee.sixeyesmod;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.ActiveRenderInfo;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.RenderWorldLastEvent;
@@ -13,12 +14,12 @@ public class DomainWorldRenderer {
     @SubscribeEvent
     public static void onRenderWorld(RenderWorldLastEvent event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null) return;
+        if (mc.player == null || mc.gameRenderer == null) return;
 
-        // ИСПРАВЛЕНО ДЛЯ 1.16.5: Используем getActiveRenderInfo()
-        Vector3d view = mc.gameRenderer.getActiveRenderInfo().getProjectedView();
+        // Прямое обращение к ActiveRenderInfo для 1.16.5
+        ActiveRenderInfo info = mc.gameRenderer.getMainCamera(); 
+        Vector3d view = info.getPosition();
         
-        // Логика отрисовки купола Годжо (шейдеры)
-        // Здесь должен быть твой код вызова купола
+        // Здесь твоя логика отрисовки купола Годжо
     }
 }
