@@ -10,12 +10,11 @@ import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "sixeyesmod")
 public class AbilityHandler {
-
     @SubscribeEvent
     public static void onEntityUpdate(LivingEvent.LivingUpdateEvent event) {
         LivingEntity entity = event.getEntityLiving();
-        if (entity instanceof MobEntity) {
-            // В 1.16.5 используем .world вместо .level
+        // В 1.16.5 используем .world
+        if (entity instanceof MobEntity && entity.world != null) {
             PlayerEntity closestPlayer = entity.world.getNearestPlayer(entity, 5.0D);
             if (closestPlayer != null) {
                 ((MobEntity) entity).setNoAI(true);
@@ -23,15 +22,8 @@ public class AbilityHandler {
         }
     }
 
-    public static void executeDomain(ServerPlayerEntity player) {
-        // Логика активации территории
-    }
-
-    public static void executeInfinity(ServerPlayerEntity player) {
-        // Логика активации бесконечности
-    }
-
-    public static void checkBarrier(PlayerEntity player) {
-        // Логика проверки барьера
-    }
+    // Методы для Networking и ModEvents
+    public static void executeDomain(ServerPlayerEntity player) {}
+    public static void executeInfinity(ServerPlayerEntity player) {}
+    public static void checkBarrier(PlayerEntity player) {}
 }
