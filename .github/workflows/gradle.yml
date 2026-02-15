@@ -8,13 +8,13 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v4
         with:
-          java-version: '17' # Если версия игры 1.20.5+, поменяй на '21'
+          java-version: '17' # Если майн 1.20.5+, ставь 21. Если 1.12.2, ставь 8
           distribution: 'temurin'
-      - name: Permission
-        run: chmod +x gradlew
-      - name: Build
+      - name: Fix Missing Gradle
+        run: gradle wrapper
+      - name: Build Mod
         run: ./gradlew build
-      - name: Upload
+      - name: Save Result
         uses: actions/upload-artifact@v4
         with:
           name: SixEyesMod-JAR
