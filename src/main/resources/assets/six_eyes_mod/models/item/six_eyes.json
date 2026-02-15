@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "six_eyes_mod:item/six_eyes"
+  }
+}
