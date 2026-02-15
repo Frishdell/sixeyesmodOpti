@@ -8,13 +8,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 @Mod.EventBusSubscriber(modid = "sixeyesmod", value = Dist.CLIENT)
-public class DomainWorldRenderer {
+public class DomainWorldRenderer { // <--- ТУТ С WORLD
     @SubscribeEvent
-    public static void onRenderWorld(RenderWorldLastEvent event) {
+    public static void onRender(RenderWorldLastEvent event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.getEntityRenderDispatcher() == null) return;
-        // Камера для снаружи
+        if (mc.player == null) return;
         Vector3d view = mc.getEntityRenderDispatcher().camera.getPosition();
-        // Внешняя оболочка купола здесь
     }
 }
