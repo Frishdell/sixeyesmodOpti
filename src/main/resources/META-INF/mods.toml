@@ -1,0 +1,30 @@
+modLoader="javafml"
+loaderVersion="[36,)"
+license="MIT"
+
+[[mods]]
+modId="six_eyes_mod"
+version="1.0.0"
+displayName="Six Eyes Mod"
+authors="Coffee"
+description='''
+Мод на Шесть Глаз (Gojo Satoru). 
+Включает систему маны с прокачкой лимита (+5), 
+Бесконечность и Расширение Территории с физическим барьером.
+Оптимизировано для мобильных устройств.
+'''
+
+[[dependencies.six_eyes_mod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.six_eyes_mod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.5,1.17)"
+    ordering="NONE"
+    side="BOTH"
+    
