@@ -14,12 +14,10 @@ public class DomainWorldRenderer {
     @SubscribeEvent
     public static void onRenderWorld(RenderWorldLastEvent event) {
         Minecraft mc = Minecraft.getInstance();
-        if (mc.player == null || mc.gameRenderer == null) return;
+        if (mc.player == null) return;
 
-        // Прямое обращение к ActiveRenderInfo для 1.16.5
-        ActiveRenderInfo info = mc.gameRenderer.getMainCamera(); 
+        // В 1.16.5 доступ к позиции камеры через renderDispatcher
+        ActiveRenderInfo info = mc.getEntityRenderDispatcher().camera;
         Vector3d view = info.getPosition();
-        
-        // Здесь твоя логика отрисовки купола Годжо
     }
 }
